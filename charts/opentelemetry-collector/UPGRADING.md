@@ -57,11 +57,11 @@ To be in compliance with the Collector's security best practices the chart has b
 
 The chart will continue to allow complete configuration of the Collector via the `config` field in the values.yaml.  If pod IP does not suite your needs you can use `config` to set something different.
 
-See [Security Best Practices docummentation](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/security-best-practices.md#safeguards-against-denial-of-service-attacks) for more details.
+See [Security Best Practices documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/security-best-practices.md#safeguards-against-denial-of-service-attacks) for more details.
 
 ## 0.75.1 to 0.76.0
 
-Enable the `useGOMEMLIMIT` feature flag by default. This means by default the chart now does not use the Memory Ballast Extension and any custom configuraiton applied to the Memory Ballast Extension is ignored.
+Enable the `useGOMEMLIMIT` feature flag by default. This means by default the chart now does not use the Memory Ballast Extension and any custom configuration applied to the Memory Ballast Extension is ignored.
 
 **If you're still interested in using the Memory Ballast Extension set this back to false.**
 
@@ -147,7 +147,7 @@ To be in compliance with the Collector's security best practices the chart has b
 
 The chart will continue to allow complete configuration of the Collector via the `config` field in the values.yaml.  If pod IP does not suite your needs you can use `config` to set something different.
 
-See [Security Best Practices docummentation](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/security-best-practices.md#safeguards-against-denial-of-service-attacks) for more details.
+See [Security Best Practices documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/security-best-practices.md#safeguards-against-denial-of-service-attacks) for more details.
 
 The new default of binding to the pod IP, rather than `0.0.0.0`, will cause `kubectl port-forward` to fail. If port-forwarding is desired, the following `value.yaml` snippet will allow the Collector bind to `127.0.0.1` inside the pod, in addition to the pod's IP:
 
@@ -295,7 +295,7 @@ The `agentCollector` and `standaloneCollector` sections in values.yaml have been
 mode: <daemonset|deployment>
 ```
 
-The following fields have also been added to the root-level to replace the depracated `agentCollector` and `standaloneCollector` settings.
+The following fields have also been added to the root-level to replace the deprecated `agentCollector` and `standaloneCollector` settings.
 
 ```yaml
 containerLogs:

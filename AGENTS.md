@@ -2,7 +2,7 @@
 
 This file is here to steer AI assisted PRs towards being high quality and valuable contributions
 that do not create excessive maintainer burden. It is inspired by the Open Policy Agent and Fedora
-projects policies.
+project policies.
 
 ## General Rules and Guidelines
 
