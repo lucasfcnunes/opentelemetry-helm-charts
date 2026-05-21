@@ -26,7 +26,7 @@ This chart installs the OpenTelemetry Operator and a daemonset collector pool wi
 For example usage of this chart, please look in the examples/ folder where you can see how you can set a custom OTLP exporter for your desired destination. The example configuration also shows how to enable Instrumentation and OpAMP Bridge resources.
 
 ### Kube-Prometheus-Stack compatibility
-This chart provides functionality to port an existing scrape configuration from the [kube-prometheus-stack chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) to this chart. This is accomplished by embedding the [kube-state-metrics](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-state-metrics) and [prometheus-node-exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-node-exporter) charts. Each of the versions installed in this chart is pinned the latest minor version in the published repositories.
+This chart provides functionality to port an existing scrape configuration from the [kube-prometheus-stack chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) to this chart. This is accomplished by embedding the [kube-state-metrics](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-state-metrics) and [prometheus-node-exporter](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-node-exporter) charts. Each of the versions installed in this chart is pinned to the latest minor version in the published repositories.
 
 > [!NOTE]
 > More work is needed for full compatibility. Specifically, the exporter configuration provided for various kubernetes infrastructure components.
@@ -46,7 +46,7 @@ bridge.image.tag: 0.103.0
 ### scrape_configs_file Details
 
 > [!NOTE]
-> This parameter only works when running the helm chart locally. When installing the helm chart using the remote repository it is not possible to include "external" scrape config files into the helm structure. This is also true when the chart is used as a subchart, and the scrape config files exists in the parent chart. Ref. [helm docs](https://helm.sh/docs/chart_template_guide/accessing_files/)
+> This parameter only works when running the helm chart locally. When installing the helm chart using the remote repository it is not possible to include "external" scrape config files into the helm structure. This is also true when the chart is used as a subchart, and the scrape config files exist in the parent chart. Ref. [helm docs](https://helm.sh/docs/chart_template_guide/accessing_files/)
 
 By default, the daemonset collector will load in the daemon_scrape_configs.yaml file which collects prometheus metrics from applications on the same node that have the prometheus.io/scrape=true annotation, kubernetes node metrics, and cadvisor metrics. Users can disable this by setting collectors.daemon.scrape_configs_file: "" OR they can provide their own prometheus scrape config file for the daemonset by supplying collectors.daemon.scrape_configs_file: "<your-file>.yaml"
 
@@ -96,7 +96,7 @@ $ helm install --namespace opentelemetry-operator-system \
   opentelemetry-kube-stack open-telemetry/opentelemetry-kube-stack
 ```
 
-If you wish for helm to create an automatically generated self-signed certificate, make sure to set the appropriate values when installing the chart:
+If you want helm to automatically generate a self‑signed certificate, make sure to set the appropriate values when installing the chart:
 
 ```console
 $ helm install  --set opentelemetry-operator.admissionWebhooks.certManager.enabled=false --set admissionWebhooks.autoGenerateCert.enabled=true \
@@ -142,7 +142,7 @@ _See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command documen
 ### Upgrade from 0.6.x to 0.7.x
 
 Version 0.7.0 has unified the previous collectors (daemonset and deployment) in a single one. If you are using custom configurations for `cluster` collector, you will need to merge your `cluster` collector configuration with `daemon` collector and remove `collectors.cluster` section from your values file.
-If you are using helm, upgrade command is enough the prune old resources, but gitops approaches like 'ArgoCD' could require to select pruning options during sync process to get rid of removed resources.
+If you are using helm, upgrade command is enough to prune old resources, but GitOps approaches like 'ArgoCD' could require to select pruning options during sync process to get rid of removed resources.
 
 ## Configuration
 
