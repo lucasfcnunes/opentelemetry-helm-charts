@@ -181,7 +181,7 @@ The OpenTelemetry Demo Helm chart depends on 5 sub-charts:
 
 Parameters for each sub-chart can be specified within that sub-chart's
 respective top level. This chart will override some of the dependent sub-chart
-parameters by default. The overriden parameters are specified below.
+parameters by default. The overridden parameters are specified below.
 
 #### OpenTelemetry Collector
 
@@ -205,7 +205,7 @@ parameters by default. The overriden parameters are specified below.
 | Parameter             | Description                                               | Default            |
 |-----------------------|-----------------------------------------------------------|--------------------|
 | `enabled`             | Install the Jaeger sub-chart                              | `true`             |
-| `jaeger.storage.type` | Sets storage type fo memory storage                       | `memory`           |
+| `jaeger.storage.type` | Sets storage type for memory storage                      | `memory`           |
 | `jaeger.extraEnv`     | Additional environment variables referenced in userconfig |                    |
 | `jaeger.resources`    | CPU/Memory resource requests/limits for Jaeger            | 400Mi memory limit |
 | `userconfig`          | Configuration used for Jaeger's collector instance        |                    |
