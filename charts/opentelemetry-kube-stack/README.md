@@ -13,7 +13,7 @@ This Helm chart serves as a quickstart for OpenTelemetry in a Kubernetes environ
 
 This chart installs the OpenTelemetry Operator and a daemonset collector pool with the following features:
 * Kubernetes infrastructure metrics
-* Applications logs
+* Application logs
 * OTLP trace receiver
 * Kubernetes resource enrichment
 * Kubernetes events
@@ -115,7 +115,7 @@ $ helm uninstall opentelemetry-kube-stack
 
 _See [helm uninstall](https://helm.sh/docs/helm/helm_uninstall/) for command documentation._
 
-This will remove all the Kubernetes components associated with the chart and deletes the release.
+This will remove all the Kubernetes components associated with the chart and delete the release.
 
 The OpenTelemetry Collector CRD created by this chart won't be removed by default and should be manually deleted:
 
@@ -139,7 +139,7 @@ Consult also the [Helm Documentation on CRDs](https://helm.sh/docs/chart_best_pr
 
 _See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command documentation._
 
-### Upgrade from 0.6.x to 0.7.x
+### Upgrade from 0.6.x to 0.7.x
 
 Version 0.7.0 has unified the previous collectors (daemonset and deployment) in a single one. If you are using custom configurations for `cluster` collector, you will need to merge your `cluster` collector configuration with `daemon` collector and remove `collectors.cluster` section from your values file.
 If you are using helm, upgrade command is enough to prune old resources, but GitOps approaches like 'ArgoCD' could require to select pruning options during sync process to get rid of removed resources.

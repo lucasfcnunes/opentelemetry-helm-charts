@@ -1,7 +1,7 @@
 # OpenTelemetry Collector Helm Chart
 
-The helm chart installs [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector)
-in kubernetes cluster.
+The Helm chart installs [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector)
+in a Kubernetes cluster.
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ This feature is disabled by default. It has the following requirements:
 - It needs agent collector to be deployed.
 - It requires the [Filelog receiver](https://opentelemetry.io/docs/kubernetes/collector/components/#filelog-receiver) to be included in the collector, such as [k8s](https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-k8s) version of the collector image.
 
-To enable this feature, set the  `presets.logsCollection.enabled` property to `true`.
+To enable this feature, set the `presets.logsCollection.enabled` property to `true`.
 Here is an example `values.yaml`:
 
 ```yaml
@@ -109,7 +109,7 @@ to read the files where Kubernetes container runtime writes all containers' cons
 #### Log collection for a subset of pods or containers
 
 The `logsCollection` preset will by default ingest the logs of all kubernetes containers.
-This is achieved by using an include path of `/var/log/pods/*/*/*.log` for the `filelog`receiver.
+This is achieved by using an include path of `/var/log/pods/*/*/*.log` for the `filelog` receiver.
 
 To limit the import to a certain subset of pods or containers, the `filelog`
 receivers `include` list can be overwritten by supplying explicit configuration.

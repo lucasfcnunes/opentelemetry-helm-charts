@@ -1,6 +1,6 @@
 # OpenTelemetry Demo Helm Chart
 
-The helm chart installs the
+The Helm chart installs the
 [OpenTelemetry Demo](https://github.com/open-telemetry/opentelemetry-demo) in a
 Kubernetes cluster.
 
@@ -50,8 +50,8 @@ Installing the chart on OpenShift requires the following additional steps:
     oc adm policy add-scc-to-user anyuid -z opentelemetry-demo
     ```
 
-4. Add `view` role to the service account to allow Prometheus seeing the
-services pods:
+4. Add the `view` role to the service account to allow Prometheus to see the
+service pods:
 
     ```console
     oc adm policy add-role-to-user view -z opentelemetry-demo
