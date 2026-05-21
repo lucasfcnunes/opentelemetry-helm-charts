@@ -19,7 +19,7 @@ This chart installs the OpenTelemetry Operator and a daemonset collector pool wi
 * Kubernetes events
 * Cluster metrics
 
-**Note**: This setup requires the usage of leader election extension. If this isn't possible for any reason, this extension can be avoided with [this alternative setup](/charts/opentelemetry-kube-stack/examples/no-leader-election-extension/README.md)
+**Note**: This setup requires the usage of leader election extension. If this isn't possible for any reason, this extension can be avoided with [this alternative setup](/charts/opentelemetry-kube-stack/examples/no-leader-election-extension/README.md).
 
 ## Usage
 
@@ -96,7 +96,7 @@ $ helm install --namespace opentelemetry-operator-system \
   opentelemetry-kube-stack open-telemetry/opentelemetry-kube-stack
 ```
 
-If you want helm to automatically generate a self‑signed certificate, make sure to set the appropriate values when installing the chart:
+If you want helm to automatically generate a self-signed certificate, make sure to set the appropriate values when installing the chart:
 
 ```console
 $ helm install  --set opentelemetry-operator.admissionWebhooks.certManager.enabled=false --set admissionWebhooks.autoGenerateCert.enabled=true \
